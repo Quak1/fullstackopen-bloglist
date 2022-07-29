@@ -12,8 +12,8 @@
     "make:ui": "cd ./frontend && pwd && npm run build ",
     "move:ui": "mv ./frontend/build .",
     "build:ui": "npm run install:ui && npm run make:ui && npm run move:ui",
-    "test:e2e": "cd ./frontend && npm run test:e2e",
-    "heroku": "npm run build:ui && npm start"
+    "heroku-postbuild": "build:ui",
+    "test:e2e": "cd ./frontend && npm run test:e2e"
   },
   "keywords": [],
   "author": "",
