@@ -26,6 +26,9 @@ app.use(middleware.getToken);
 app.use("/api/blogs", blogRouter);
 app.use("/api/users", userRouter);
 app.use("/api/login", loginRouter);
+app.get("/api/health", (_, res) => {
+  res.send("ok");
+});
 app.get("/*", function (_, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
