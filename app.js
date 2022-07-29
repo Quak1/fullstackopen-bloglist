@@ -29,6 +29,10 @@ app.use("/api/login", loginRouter);
 app.get("/api/health", (_, res) => {
   res.send("ok");
 });
+app.get("/api/version", (_, res) => {
+  res.send("v0");
+});
+
 app.get("/*", function (_, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
