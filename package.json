@@ -13,7 +13,8 @@
     "move:ui": "mv ./frontend/build .",
     "build:ui": "npm run install:ui && npm run make:ui && npm run move:ui",
     "heroku-postbuild": "npm run build:ui",
-    "test:e2e": "cd ./frontend && npm run test:e2e"
+    "test:e2e": "cd ./frontend && npm run test:e2e",
+    "live": "echo live"
   },
   "keywords": [],
   "author": "",
