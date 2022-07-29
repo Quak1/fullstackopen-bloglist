@@ -16,7 +16,7 @@ Cypress.Commands.add("login", (username, password) => {
     password,
   }).then(({ body }) => {
     localStorage.setItem("loggedUser", JSON.stringify(body));
-    cy.visit("http://localhost:3000");
+    cy.visit("http://localhost:3003");
   });
 });
 
@@ -36,10 +36,10 @@ Cypress.Commands.add("createBlog", (title, author, url) => {
         JSON.parse(localStorage.getItem("loggedUser")).token
       }`,
     },
-  }).then(() => cy.visit("http://localhost:3000"));
+  }).then(() => cy.visit("http://localhost:3003"));
 });
 
 Cypress.Commands.add("logout", () => {
   localStorage.removeItem("loggedUser");
-  cy.visit("http://localhost:3000");
+  cy.visit("http://localhost:3003");
 });
