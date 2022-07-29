@@ -6,8 +6,6 @@ const MONGODB_URI =
     ? process.env.TEST_MONGODB_URI
     : process.env.MONGODB_URI;
 
-console.log(`PORT ${PORT}`);
-
 module.exports = {
   PORT,
   MONGODB_URI,

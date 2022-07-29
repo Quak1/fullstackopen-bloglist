@@ -8,7 +8,6 @@ import {
   TableRow,
   TableCell,
   TableBody,
-  TableContainer,
 } from "@mui/material";
 
 import { fetchUsers } from "../reducers/usersReducer";

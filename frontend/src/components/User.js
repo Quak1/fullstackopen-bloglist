@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Typography, List, ListItem, Divider } from "@mui/material";
+import { Typography, List, Divider } from "@mui/material";
 
 import Blog from "./Blog";
 import { fetchUsers } from "../reducers/usersReducer";

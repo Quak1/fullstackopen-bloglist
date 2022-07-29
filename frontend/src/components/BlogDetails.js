@@ -1,13 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import {
-  Box,
-  Typography,
-  Divider,
-  Card,
-  CardContent,
-  Button,
-} from "@mui/material";
+import { Typography, Divider, Card, CardContent, Button } from "@mui/material";
 
 import CommentList from "./CommentList";
 import CommentForm from "./CommentForm";
