@@ -12,7 +12,7 @@
     "make:ui": "cd ./frontend && pwd && npm run build ",
     "move:ui": "mv ./frontend/build .",
     "build:ui": "npm run install:ui && npm run make:ui && npm run move:ui",
-    "heroku-postbuild": "build:ui",
+    "heroku-postbuild": "npm run build:ui",
     "test:e2e": "cd ./frontend && npm run test:e2e"
   },
   "keywords": [],
