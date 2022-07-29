@@ -11,19 +11,23 @@ on:
 jobs:
   deployment_pipeline:
     runs-on: ubuntu-latest
-    env:
-      TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
-      PORT: ${{ secrets.PORT }}
-      SECRET: ${{ secrets.SECRET}}
 
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: "latest"
+
+      - name: create env file
+        run: |
+          touch .env
+          echo TEST_MONGODB_URI=${{ secrets.TEST_MONGODB_URI }} >> .env
+          echo PORT=${{ secrets.PORT }} >> .env
+          echo SECRET=${{ secrets.SECRET }} >> .env
+
       - name: npm install
         run: npm install
-      - name: test
+      - name: test backend
         run: npm test
       - name: build ui
         run: npm run build:ui
@@ -33,6 +37,7 @@ jobs:
           command: npm run test:e2e
           start: npm run start:test
           wait-on: http://localhost:3003
+
       - name: Deploy to Heroku
         if: ${{ github.event_name == 'push' }}
         uses: AkhileshNS/heroku-deploy@v3.12.12
@@ -40,6 +45,7 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "quak-bloglist"
           heroku_email: "wannasz86@gmail.com"
+
   tag_release:
     if: ${{ github.event_name == 'push' }}
     needs: [deployment_pipeline]
