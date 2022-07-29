@@ -22,9 +22,9 @@ jobs:
         run: |
           pwd
           touch .env
-          echo TEST_MONGODB_URI="${{ secrets.TEST_MONGODB_URI }}" >> .env
-          echo PORT="${{ secrets.PORT }}" >> .env
-          echo SECRET="${{ secrets.SECRET }}" >> .env
+          echo TEST_MONGODB_URI=${{ secrets.TEST_MONGODB_URI }} >> .env
+          echo PORT=${{ secrets.PORT }} >> .env
+          echo SECRET=${{ secrets.SECRET }} >> .env
           cat .env
 
       - name: npm install
