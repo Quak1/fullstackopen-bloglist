@@ -37,5 +37,8 @@
     "modulePathIgnorePatterns": [
       "frontend"
     ]
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
